@@ -2,6 +2,9 @@
   <div id="nav">
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link>
+    <div class="icon-wrapper">
+      <test-component />
+    </div>
   </div>
   <router-view/>
 </template>
@@ -26,5 +29,11 @@
       color: #42b983;
     }
   }
+}
+
+.icon-wrapper {
+  width: 20px;
+  height: 20px;
+  color: green;
 }
 </style>
