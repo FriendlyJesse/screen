@@ -1,24 +1,238 @@
 <template>
   <div class="home">
+    <loading v-if="loading">
+      <div class="loading__text">
+        数据大屏加载中...
+      </div>
+    </loading>
     <auto-container
+      v-else
       :options="{width: 3840, height: 2160}"
     >
-      <div class="test">
-        111
-      </div>
+      <header class="header">
+        <top-header/>
+      </header>
+      <section class="separator">222</section>
+      <main class="main">
+        <aside class="left">
+          <div class="left__item1">
+            <total-users
+              :today-user="todayUser"
+              :growth-last-day="growthLastDay"
+              :growth-last-month="growthLastMonth"
+            />
+          </div>
+          <div class="left__item2">
+            <average-age :data="ageData" :avgAge="averageAge" />
+          </div>
+          <div class="left__item3">
+            <vue-echarts :options="options" />
+          </div>
+          <div class="left__item4">444</div>
+          <div class="left__item5">555</div>
+          <div class="left__item6">666</div>
+        </aside>
+        <section class="right">
+          <div class="right__top1">111</div>
+          <div class="right__top2">222</div>
+          <div class="right__bottom">
+            <div class="right__bottom-left">
+              <div class="item1">111</div>
+              <div class="item2">222</div>
+              <div class="item3">333</div>
+              <div class="item4">444</div>
+            </div>
+            <div class="right__bottom-right">
+              <div class="item1">111</div>
+              <div class="item2">222</div>
+            </div>
+          </div>
+        </section>
+      </main>
     </auto-container>
   </div>
 </template>
 
 <script lang="ts">
-export default {
-  name: 'Home'
-}
+import { defineComponent, ref, onMounted } from 'vue'
+import TopHeader from '@/components/TopHeader/index.vue'
+import TotalUsers from '@/components/TotalUser/index.vue'
+import AverageAge from '@/components/AverageAge/index.vue'
+import useScreenData from '@/hooks/useScreenData'
+
+export default defineComponent({
+  name: 'Home',
+  components: {
+    TopHeader,
+    TotalUsers,
+    AverageAge
+  },
+  setup () {
+    const loading = ref(true)
+
+    onMounted(() => {
+      setTimeout(() => {
+        loading.value = false
+      }, 1000)
+    })
+
+    return {
+      loading,
+      ...useScreenData(),
+      options: {
+        xAxis: {
+          data: ['a', 'b', 'c', 'd']
+        },
+        yAxis: {},
+        series: [{
+          name: 'sales',
+          type: 'bar',
+          data: [10, 15, 20, 25]
+        }]
+      }
+    }
+  }
+})
 </script>
 
 <style lang="scss" scoped>
-.test {
-  color: red;
-  font-size: 140px;
+.home {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background: rgb(29, 29, 29);
+  color: #fff;
+  font-size: 48px;
+  #auto-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    & > .header, & > .separator, & > .main {
+      width: 100%;
+    }
+    .header {
+      height: 167px;
+      background: yellow;
+    }
+    .separator {
+      height: 10px;
+      background: black;
+    }
+    .main {
+      flex: auto;
+      display: flex;
+      width: 100%;
+      background: rebeccapurple;
+      .left {
+        flex: 0 0 860px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding-bottom: 20px;
+        box-sizing: border-box;
+        width: 860px;
+        height: 100%;
+        background: red;
+        &__item1 {
+          height: 320px;
+          background: green;
+        }
+        &__item2 {
+          height: 320px;
+          background: yellow;
+        }
+        &__item3 {
+          height: 280px;
+          background: blue;
+        }
+        &__item4 {
+          height: 230px;
+          background: purple;
+        }
+        &__item5 {
+          height: 360px;
+          background: pink;
+        }
+        &__item6 {
+          height: 360px;
+          background: rgba(0, 255, 0, 0.459);
+        }
+      }
+      .right {
+        flex: auto;
+        display: flex;
+        flex-direction: column;
+        background:  blue;
+        &__top1 {
+          width: 100%;
+          height: 206px;
+          background: darkblue;
+        }
+        &__top2 {
+          width: 100%;
+          height: 48px;
+          background: cadetblue;
+        }
+        &__bottom {
+          flex: auto;
+          display: flex;
+          padding-bottom: 20px;
+          &-left {
+            display: flex;
+            flex: 0 0 1917px;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 1917px;
+            .item1 {
+              height: 999px;
+              background: red;
+            }
+            .item2 {
+              height: 80px;
+              background: yellowgreen;
+            }
+            .item3 {
+              height: 350px;
+              background: deepskyblue;
+            }
+            .item4 {
+              height: 220px;
+              background: orangered;
+            }
+          }
+          &-right {
+            flex: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            margin-left: 10px;
+            .item1 {
+              width: 100%;
+              height: 999px;
+              background: burlywood;
+            }
+            .item2 {
+              flex: auto;
+              width: 100%;
+              background: darkred;
+            }
+          }
+        }
+      }
+    }
+  }
+  .loading {
+    &__text {
+      margin-top: 10px;
+      font-size: 24px;
+    }
+  }
+
 }
 </style>

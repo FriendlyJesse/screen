@@ -5,3 +5,4 @@ declare module '*.vue' {
 }
 
 declare module 'datav-libs'
+declare module 'vue-echarts'
