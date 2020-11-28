@@ -26,11 +26,17 @@
             <average-age :data="ageData" :avgAge="averageAge" />
           </div>
           <div class="left__item3">
-            <vue-echarts :options="options" />
+            <total-device :data="deviceData" />
           </div>
-          <div class="left__item4">444</div>
-          <div class="left__item5">555</div>
-          <div class="left__item6">666</div>
+          <div class="left__item4">
+            <total-gender :data="genderData" />
+          </div>
+          <div class="left__item5">
+            <total-rider :data="riderData" />
+          </div>
+          <div class="left__item6">
+            <hot-category :data="hotCategoryData" />
+          </div>
         </aside>
         <section class="right">
           <div class="right__top1">111</div>
@@ -55,17 +61,25 @@
 
 <script lang="ts">
 import { defineComponent, ref, onMounted } from 'vue'
+import useScreenData from '@/hooks/useScreenData'
 import TopHeader from '@/components/TopHeader/index.vue'
 import TotalUsers from '@/components/TotalUser/index.vue'
 import AverageAge from '@/components/AverageAge/index.vue'
-import useScreenData from '@/hooks/useScreenData'
+import TotalDevice from '@/components/TotalDevice/index.vue'
+import TotalGender from '@/components/TotalGender/index.vue'
+import TotalRider from '@/components/TotalRider/index.vue'
+import HotCategory from '@/components/HotCategory/index.vue'
 
 export default defineComponent({
   name: 'Home',
   components: {
     TopHeader,
     TotalUsers,
-    AverageAge
+    AverageAge,
+    TotalDevice,
+    TotalGender,
+    TotalRider,
+    HotCategory
   },
   setup () {
     const loading = ref(true)
@@ -78,18 +92,7 @@ export default defineComponent({
 
     return {
       loading,
-      ...useScreenData(),
-      options: {
-        xAxis: {
-          data: ['a', 'b', 'c', 'd']
-        },
-        yAxis: {},
-        series: [{
-          name: 'sales',
-          type: 'bar',
-          data: [10, 15, 20, 25]
-        }]
-      }
+      ...useScreenData()
     }
   }
 })

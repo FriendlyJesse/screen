@@ -2,7 +2,7 @@
   <div class="average-age">
     <div class="title-wrapper">
       <div class="average-age-left">
-        <div class="title">慕课外卖用户年龄分布&平均年龄</div>
+        <div class="title">外卖用户年龄分布&平均年龄</div>
         <div class="sub-title">Distribution of Age</div>
       </div>
       <div class="average-age-right">
@@ -18,7 +18,7 @@
       </div>
     </div>
     <div id="average-age-chart">
-      <!-- <vue-echarts :options="options" /> -->
+      <vue-echarts :options="options" />
     </div>
     <div class="average-data-wrapper">
       <div class="average-data" v-for="(item, index) in data" :key="index">
@@ -39,11 +39,11 @@
 </template>
 
 <script>
-import { ref, watch, onMounted } from 'vue'
+import { defineComponent, ref, watch, onMounted } from 'vue'
 
 // const color = ['rgb(116,166,49)', 'rgb(190,245,99)', 'rgb(202,252,137)', 'rgb(251,253,142)']
 
-export default {
+export default defineComponent({
   name: 'averageAge',
   props: {
     data: Array,
@@ -130,10 +130,10 @@ export default {
         startAge.value = prevValue
       })
       watch(() => ctx.data, () => {
-        // updateChart()
+        updateChart()
       })
       onMounted(() => {
-        // updateChart()
+        updateChart()
       })
 
       return {
@@ -141,7 +141,7 @@ export default {
         options
       }
     }
-  }
+  })
 </script>
 
 <style lang="scss" scoped>
