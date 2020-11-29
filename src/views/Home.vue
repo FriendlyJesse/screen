@@ -39,12 +39,23 @@
           </div>
         </aside>
         <section class="right">
-          <div class="right__top1">111</div>
-          <div class="right__top2">222</div>
+          <div class="right__top1">
+            <center-header :data="headerData" />
+          </div>
+          <div class="right__top2">
+            <transform-category
+              :data="['ALL', '北京', '上海', '深圳', '南京', '武汉']"
+            />
+          </div>
           <div class="right__bottom">
             <div class="right__bottom-left">
               <div class="item1">111</div>
-              <div class="item2">222</div>
+              <div class="item2">
+                <transform-category
+                  :data="['订单量', '销售额', '用户数', '退单量']"
+                  :color="['rgb(178, 209, 126)', 'rgb(116, 116, 49)']"
+                />
+              </div>
               <div class="item3">333</div>
               <div class="item4">444</div>
             </div>
@@ -69,6 +80,8 @@ import TotalDevice from '@/components/TotalDevice/index.vue'
 import TotalGender from '@/components/TotalGender/index.vue'
 import TotalRider from '@/components/TotalRider/index.vue'
 import HotCategory from '@/components/HotCategory/index.vue'
+import CenterHeader from '@/components/CenterHeader/index.vue'
+import TransformCategory from '@/components/TransformCategory/index.vue'
 
 export default defineComponent({
   name: 'Home',
@@ -79,7 +92,9 @@ export default defineComponent({
     TotalDevice,
     TotalGender,
     TotalRider,
-    HotCategory
+    HotCategory,
+    CenterHeader,
+    TransformCategory
   },
   setup () {
     const loading = ref(true)

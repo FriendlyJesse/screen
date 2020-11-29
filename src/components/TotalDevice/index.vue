@@ -40,11 +40,11 @@
 </template>
 
 <script>
-import { ref, watch, onMounted } from 'vue'
+import { defineComponent, ref, watch, onMounted } from 'vue'
 
 const color = ['rgb(176,207,120)', 'rgb(157,195,91)', 'rgb(131,167,72)']
 
-export default {
+export default defineComponent({
   name: 'totalDevice',
   props: {
     data: Object
@@ -109,7 +109,7 @@ export default {
       startNum
     }
   }
-}
+})
 </script>
 
 <style lang="scss" scoped>

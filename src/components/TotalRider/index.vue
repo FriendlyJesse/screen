@@ -11,11 +11,11 @@
 </template>
 
 <script>
-import { watch, onMounted, onUnmounted, ref } from 'vue'
+import { defineComponent, watch, onMounted, onUnmounted, ref } from 'vue'
 
 const colors = ['rgb(209,248,139)', 'rgb(115,201,245)', 'rgb(124,136,146)']
 
-export default {
+export default defineComponent({
   name: 'TotalRider',
   props: {
     data: Object
@@ -146,7 +146,7 @@ export default {
       options
     }
   }
-}
+})
 </script>
 
 <style lang="scss" scoped>

@@ -16,10 +16,10 @@
 </template>
 
 <script>
-import { watch, onMounted, ref } from 'vue'
+import { defineComponent, watch, onMounted, ref } from 'vue'
 import { clock as useClock } from '@/hooks/useClock'
 
-export default {
+export default defineComponent({
   name: 'HotCategory',
   props: {
     data: Object
@@ -121,7 +121,7 @@ export default {
       options
     }
   }
-}
+})
 </script>
 
 <style lang="scss" scoped>

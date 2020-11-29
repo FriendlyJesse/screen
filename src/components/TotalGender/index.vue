@@ -38,9 +38,9 @@
 </template>
 
 <script>
-import { ref, watch, onMounted } from 'vue'
+import { defineComponent, ref, watch, onMounted } from 'vue'
 
-export default {
+export default defineComponent({
   name: 'totalGender',
   props: {
     data: Array
@@ -72,7 +72,7 @@ export default {
       endMale
     }
   }
-}
+})
 </script>
 
 <style lang="scss" scoped>
