@@ -23,7 +23,7 @@ export default defineComponent({
     const rowColor = 'black'
     const data = []
 
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < 10; i++) {
       data.push([
         '同学' + (i + 1),
         Math.floor(Math.random() * 10 + 20),

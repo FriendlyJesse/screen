@@ -56,11 +56,15 @@
                   :color="['rgb(178, 209, 126)', 'rgb(116, 116, 49)']"
                 />
               </div>
-              <div class="item3">333</div>
+              <div class="item3">
+                333
+              </div>
               <div class="item4">444</div>
             </div>
             <div class="right__bottom-right">
-              <div class="item1">111</div>
+              <div class="item1">
+                <sales-list :data="salesListkData" />
+              </div>
               <div class="item2">222</div>
             </div>
           </div>
@@ -82,6 +86,7 @@ import TotalRider from '@/components/TotalRider/index.vue'
 import HotCategory from '@/components/HotCategory/index.vue'
 import CenterHeader from '@/components/CenterHeader/index.vue'
 import TransformCategory from '@/components/TransformCategory/index.vue'
+import SalesList from '@/components/SalesList/index.vue'
 
 export default defineComponent({
   name: 'Home',
@@ -94,7 +99,8 @@ export default defineComponent({
     TotalRider,
     HotCategory,
     CenterHeader,
-    TransformCategory
+    TransformCategory,
+    SalesList
   },
   setup () {
     const loading = ref(true)
