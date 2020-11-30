@@ -49,7 +49,9 @@
           </div>
           <div class="right__bottom">
             <div class="right__bottom-left">
-              <div class="item1">111</div>
+              <div class="item1">
+                <jiangsu-map-warning />
+              </div>
               <div class="item2">
                 <transform-category
                   :data="['订单量', '销售额', '用户数', '退单量']"
@@ -87,6 +89,7 @@ import HotCategory from '@/components/HotCategory/index.vue'
 import CenterHeader from '@/components/CenterHeader/index.vue'
 import TransformCategory from '@/components/TransformCategory/index.vue'
 import SalesList from '@/components/SalesList/index.vue'
+import JiangsuMapWarning from '@/components/JiangsuMapWarning/index.vue'
 
 export default defineComponent({
   name: 'Home',
@@ -100,7 +103,8 @@ export default defineComponent({
     HotCategory,
     CenterHeader,
     TransformCategory,
-    SalesList
+    SalesList,
+    JiangsuMapWarning
   },
   setup () {
     const loading = ref(true)
@@ -142,17 +146,14 @@ export default defineComponent({
     }
     .header {
       height: 167px;
-      background: yellow;
     }
     .separator {
       height: 10px;
-      background: black;
     }
     .main {
       flex: auto;
       display: flex;
       width: 100%;
-      background: rebeccapurple;
       .left {
         flex: 0 0 860px;
         display: flex;
@@ -162,46 +163,36 @@ export default defineComponent({
         box-sizing: border-box;
         width: 860px;
         height: 100%;
-        background: red;
         &__item1 {
           height: 320px;
-          background: green;
         }
         &__item2 {
           height: 320px;
-          background: yellow;
         }
         &__item3 {
           height: 280px;
-          background: blue;
         }
         &__item4 {
           height: 230px;
-          background: purple;
         }
         &__item5 {
           height: 360px;
-          background: pink;
         }
         &__item6 {
           height: 360px;
-          background: rgba(0, 255, 0, 0.459);
         }
       }
       .right {
         flex: auto;
         display: flex;
         flex-direction: column;
-        background:  blue;
         &__top1 {
           width: 100%;
           height: 206px;
-          background: darkblue;
         }
         &__top2 {
           width: 100%;
           height: 48px;
-          background: cadetblue;
         }
         &__bottom {
           flex: auto;
@@ -215,19 +206,15 @@ export default defineComponent({
             width: 1917px;
             .item1 {
               height: 999px;
-              background: red;
             }
             .item2 {
               height: 80px;
-              background: yellowgreen;
             }
             .item3 {
               height: 350px;
-              background: deepskyblue;
             }
             .item4 {
               height: 220px;
-              background: orangered;
             }
           }
           &-right {
@@ -239,12 +226,10 @@ export default defineComponent({
             .item1 {
               width: 100%;
               height: 999px;
-              background: burlywood;
             }
             .item2 {
               flex: auto;
               width: 100%;
-              background: darkred;
             }
           }
         }
