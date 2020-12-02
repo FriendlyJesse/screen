@@ -50,7 +50,7 @@
           <div class="right__bottom">
             <div class="right__bottom-left">
               <div class="item1">
-                <jiangsu-map-warning />
+                <order-map />
               </div>
               <div class="item2">
                 <transform-category
@@ -59,15 +59,21 @@
                 />
               </div>
               <div class="item3">
-                333
+                <fly-box star-color="rgb(251, 253, 142)" line-color="#ddd">
+                  <real-time-order :data="realTimeOrderData" />
+                </fly-box>
               </div>
-              <div class="item4">444</div>
+              <div class="item4">
+                <schedule-view :data="scheduleViewMockData" />
+              </div>
             </div>
             <div class="right__bottom-right">
               <div class="item1">
                 <sales-list :data="salesListkData" />
               </div>
-              <div class="item2">222</div>
+              <div class="item2">
+                <sales-rank :data="salesRankData" />
+              </div>
             </div>
           </div>
         </section>
@@ -89,7 +95,10 @@ import HotCategory from '@/components/HotCategory/index.vue'
 import CenterHeader from '@/components/CenterHeader/index.vue'
 import TransformCategory from '@/components/TransformCategory/index.vue'
 import SalesList from '@/components/SalesList/index.vue'
-import JiangsuMapWarning from '@/components/JiangsuMapWarning/index.vue'
+import OrderMap from '@/components/OrderMap/index.vue'
+import RealTimeOrder from '@/components/RealTimeOrder/index.vue'
+import ScheduleView from '@/components/ScheduleView/index.vue'
+import SalesRank from '@/components/SalesRank/index.vue'
 
 export default defineComponent({
   name: 'Home',
@@ -104,7 +113,10 @@ export default defineComponent({
     CenterHeader,
     TransformCategory,
     SalesList,
-    JiangsuMapWarning
+    OrderMap,
+    RealTimeOrder,
+    ScheduleView,
+    SalesRank
   },
   setup () {
     const loading = ref(true)

@@ -1,16 +1,16 @@
 <template>
   <div class="test" style="height: 100%; width: 100%">
-    <JiangsuMapWarning />
+    <order-map />
   </div>
 </template>
 
 <script>
 import { defineComponent } from 'vue'
-import JiangsuMapWarning from '@/components/JiangsuMapWarning/index.vue'
+import OrderMap from '@/components/OrderMap/index.vue'
 
 export default defineComponent({
   components: {
-    JiangsuMapWarning
+    OrderMap
   }
 })
 </script>
